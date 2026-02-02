@@ -1,0 +1,17 @@
+:root {
+  --aiken-keyword: #8959a8;
+  --aiken-function: #4271ae;
+  --aiken-string: #718c00;
+  --aiken-number: #f5871f;
+  --aiken-comment: #8e908c;
+  --aiken-type: #c82829;
+  --aiken-operator: #3e999f;
+}
+
+.aiken-keyword { color: var(--aiken-keyword) !important; font-weight: bold !important; }
+.aiken-function { color: var(--aiken-function) !important; }
+.aiken-string { color: var(--aiken-string) !important; }
+.aiken-number { color: var(--aiken-number) !important; }
+.aiken-comment { color: var(--aiken-comment) !important; font-style: italic !important; }
+.aiken-type { color: var(--aiken-type) !important; }
+.aiken-operator { color: var(--aiken-operator) !important; }

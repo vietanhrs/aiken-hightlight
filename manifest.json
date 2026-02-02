@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Aiken Syntax Highlighting for GitLab",
+  "version": "1.0",
+  "description": "Adds syntax highlighting for Aiken language files on GitLab diff views.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://gitlab.com/*",
+        "*://*.gitlab.com/*",
+        "*://git.teko.vn/*",
+        "*://*.teko.vn/*"
+      ],
+      "css": ["src/styles.css"],
+      "js": ["src/aiken.js", "src/content.js"]
+    }
+  ],
+  "host_permissions": [
+    "*://gitlab.com/*",
+    "*://*.gitlab.com/*",
+    "*://git.teko.vn/*",
+    "*://*.teko.vn/*"
+  ]
+}

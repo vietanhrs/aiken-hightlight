@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mock GitLab Diff View</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .file-holder {
+            background: white;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .file-title {
+            padding: 10px;
+            background: #fafafa;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .diff-content {
+            overflow-x: auto;
+            padding: 0;
+        }
+
+        table.diff-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: 'Menlo', 'Monaco', monospace;
+            font-size: 12px;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        .line_content {
+            padding: 0 10px;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        .line_content span {
+            color: #333;
+        }
+
+        .old_line,
+        .new_line {
+            width: 30px;
+            text-align: right;
+            color: #aaa;
+            background: #fafafa;
+            border-right: 1px solid #eee;
+            select: none;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>GitLab Diff Mock</h1>
+
+    <!-- Example 1: aiken file -->
+    <div class="file-holder">
+        <div class="file-title-name" data-path="validators/payment.ak">
+            validators/payment.ak
+        </div>
+        <div class="diff-content">
+            <table class="diff-table">
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">1</td>
+                    <td class="line_content"><span class="line">use aiken/transaction.{ScriptContext}</span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">2</td>
+                    <td class="line_content"><span class="line"></span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">3</td>
+                    <td class="line_content"><span class="line">validator {</span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">4</td>
+                    <td class="line_content"><span class="line"> fn hello(_datum: Data, _redeemer: Data, context:
+                            ScriptContext) -> Bool {</span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">5</td>
+                    <td class="line_content"><span class="line"> True</span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">6</td>
+                    <td class="line_content"><span class="line"> }</span></td>
+                </tr>
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">7</td>
+                    <td class="line_content"><span class="line">}</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Example 2: Not an aiken file -->
+    <div class="file-holder">
+        <div class="file-title-name" data-path="other.txt">
+            other.txt
+        </div>
+        <div class="diff-content">
+            <table class="diff-table">
+                <tr>
+                    <td class="line_content"><span>Just some text</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Example 3: Incremental Loaded Aiken File -->
+    <div class="file-holder" id="incremental-holder">
+        <div class="file-title-name" data-path="lib/incremental.ak">lib/incremental.ak</div>
+        <div class="diff-content">
+            <table class="diff-table">
+                <tr>
+                    <td class="old_line"></td>
+                    <td class="new_line">1</td>
+                    <td class="line_content"><span class="line">fn initial_load() {</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            console.log("Injecting incremental content...");
+            const table = document.querySelector('#incremental-holder .diff-table');
+            const row = document.createElement('tr');
+            row.innerHTML = '<td class="old_line"></td><td class="new_line">2</td><td class="line_content"><span class="line">  True // Delayed load</span></td>';
+            table.appendChild(row);
+        }, 3000);
+    </script>
+</body>
+
+</html>

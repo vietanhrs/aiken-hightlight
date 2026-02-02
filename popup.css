@@ -1,0 +1,59 @@
+body {
+  width: 250px;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.control-group {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-size: 14px;
+}
+
+input[type="color"] {
+  border: none;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: none;
+}
+
+.actions {
+  margin-top: 15px;
+  text-align: center;
+}
+
+button {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #e0e0e0;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: green;
+  text-align: center;
+  height: 15px;
+}
