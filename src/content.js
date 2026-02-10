@@ -37,6 +37,9 @@ function applyHighlighting(fileHolder) {
     if (codeLines.length === 0) return;
     
     codeLines.forEach(line => {
+        // Skip diff headers which are contained in .match rows
+        if (line.closest('.match')) return;
+
         let target = line.querySelector('span.line');
         if (!target) target = line;
         
